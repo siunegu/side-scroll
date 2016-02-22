@@ -1,0 +1,107 @@
+* {
+	margin : 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body { width: 100%; height: 100%; }
+
+body { 
+	font-size: 62.5%; 
+	font-family: 'Lucida Grande', Helvetica, sans-serif;
+	background: #121212;
+	color: #999; 
+	padding: 20px;
+}
+
+#page-wrap {
+}
+
+/* full width/height container */
+#world-container {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+
+/* Each slide of the landscape, double height/width of viewport */
+#slides {
+	width : 200%;
+	height: 200%;
+	position: fixed;
+	top : 0; 
+	left: 0;
+	display: inline-block;
+	border: 1px solid white;
+}
+
+.slide {
+	position: absolute;
+	top : 0;
+	left: 0;
+	width : 50%;
+	height: 50%;
+}
+
+.slide-1 {
+	background: #f1f1f1;
+	background-size: cover;
+}
+
+.slide-2 {
+	background: #ef33f1;
+	background-size: cover;
+
+	transform: translate(100%, 0);
+}
+
+.slide-3 {
+	background: #0fe433;
+
+	transform: translate(200%, 0);
+}
+
+.slide-4 {
+	background: #145df9;
+
+	transform: translate(300%, 0);
+}
+
+/* Interior Elements */
+.caption {
+	position: absolute;
+	bottom: 5%;
+	right: 5%;
+	text-align: right;
+	color: #fff;
+}
+p, h1 { margin: 0; }
+h1 { margin-bottom: 0.2em; }
+p { line-height: 1.333em; }
+
+/* Helper */
+#helper {
+    position:absolute;
+    left:0;
+    top: 0;
+    height:400%;
+    width: 20px;
+}
+.marker {
+    height: 25%;
+    width: 100%;
+}
+.red {
+    background-color: red;
+}
+.green {
+    background-color: green;
+}
+.blue {
+    background-color: blue;
+}
+.yellow {
+    background-color: yellow;
+}
