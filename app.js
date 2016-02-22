@@ -9,6 +9,7 @@ let s;
 STNET.initialize = function() {
 	STNET.getElements();
 	STNET.setupSideScroll();
+	STNET.setupPageTransitions();
 	STNET.skrollr();
 };
 
