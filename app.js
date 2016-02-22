@@ -8,7 +8,7 @@ let s;
 /* Mods */
 STNET.initialize = function() {
 	STNET.getElements();
-	STNET.manipulateEl();
+	STNET.setupSideScroll();
 	STNET.skrollr();
 };
 
