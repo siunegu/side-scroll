@@ -18,6 +18,17 @@ body {
 #page-wrap {
 }
 
+/* Arbitrary title */
+.title {
+	color: #1e1e1e;
+	z-index: 99;
+
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	position: absolute;
+}
+
 /* full width/height container */
 #world-container {
 	width: 100%;
@@ -83,25 +94,25 @@ p { line-height: 1.333em; }
 
 /* Helper */
 #helper {
-    position:absolute;
-    left:0;
-    top: 0;
-    height:400%;
-    width: 20px;
+	position:absolute;
+	right:0;
+	top: 0;
+	height:400%;
+	width: 20px;
 }
 .marker {
-    height: 25%;
-    width: 100%;
+	height: 25%;
+	width: 100%;
 }
 .red {
-    background-color: red;
+	background-color: red;
 }
 .green {
-    background-color: green;
+	background-color: green;
 }
 .blue {
-    background-color: blue;
+	background-color: blue;
 }
 .yellow {
-    background-color: yellow;
+	background-color: yellow;
 }

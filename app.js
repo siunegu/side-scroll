@@ -11,6 +11,7 @@ STNET.initialize = function() {
 	STNET.setupSideScroll();
 	STNET.setupPageTransitions();
 	STNET.skrollr();
+	STNET.setupEvents();
 };
 
 STNET.getElements = function() {
@@ -35,10 +36,19 @@ STNET.setupPageTransitions = function() {
 
 	$('.slide-1')	
 		.attr({
-      "data-center"			:"opacity: 1",
-      "data-center-top" :"opacity: 0",
-      "data--100-bottom":"opacity: 0;"			
+      "data-0"								 :"opacity: 1",
+      "data--100-center-top"   :"opacity: 0",
+      "data--100-center-bottom":"opacity: 0;"			
 		});	
+
+	$('.slide-2')	
+		.attr({
+
+		});			
+};
+
+STNET.setupEvents = function() {
+
 };
 
 STNET.skrollr = function() {
