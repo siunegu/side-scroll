@@ -1,35 +1,56 @@
 'use strict';
 
-var APP = APP || {};
+var STNET = STNET || {};
 /* Elements */
 let world, worldTag;
 /* Lib */
 let s;
 /* Mods */
-APP.initialize = function() {
-	APP.skrollr();
-	APP.getElements();
-	APP.manipulateEl();
+STNET.initialize = function() {
+	STNET.getElements();
+	STNET.manipulateEl();
+	STNET.skrollr();
 };
 
-APP.getElements = function() {
+STNET.getElements = function() {
 	worldTag = '#world-container';
 	world = document.querySelector('#world-container');
 };
 
-APP.manipulateEl = function() {
-	$(worldTag)
-		// .attr({
-		// 	'data-0':'transform:translate(0%,0%);',
-		// 	'data-100p':'transform:translate(0%,-50%);',
-		// });
+STNET.setupSideScroll = function() {
+	/* Note: 
+	 * 'data-100p' means '%' offset
+	 */
+	$('#slides')
+		.attr({
+			'data-0'   :'transform:translate(0%,0%);',
+	    "data-100p":"transform:translate(-50%,0%);",
+	    "data-200p":"transform:translate(-100%,0%);",
+	    "data-300p":"transform:translate(-150%,0%);"			
+		});
 };
 
-APP.skrollr = function() {
-  s = skrollr.init();    
+STNET.setupPageTransitions = function() {
+
+	$('.slide-1')	
+		.attr({
+      "data-center"			:"opacity: 1",
+      "data-center-top" :"opacity: 0",
+      "data--100-bottom":"opacity: 0;"			
+		});	
+};
+
+STNET.skrollr = function() {
+  if ( !(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera) ) {
+    skrollr.init({
+      forceHeight: false
+    });
+  } else {  	
+	  s = skrollr.init({
+		  forceHeight: true	  	
+	  });    
+  }
 };
 
 
-
-window.ready = APP.initialize();
-
+window.ready = STNET.initialize();
