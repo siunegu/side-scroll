@@ -18,12 +18,18 @@ body {
 #page-wrap {
 }
 
+/* Nav */
+nav {
+	z-index: 101;
+	position: fixed;
+}
+
 /* Arbitrary title */
 .title {
 	color: #1e1e1e;
 	z-index: 99;
 
-	width: 100%;
+	width: 80%;
 	margin: 0 auto;
 	text-align: center;
 	position: absolute;
@@ -97,8 +103,8 @@ p { line-height: 1.333em; }
 	position:absolute;
 	right:0;
 	top: 0;
-	height:400%;
-	width: 20px;
+	height: calc(400% + 200%);
+	width : 4px;
 }
 .marker {
 	height: 25%;
