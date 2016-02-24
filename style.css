@@ -125,11 +125,8 @@ p { line-height: 1.333em; }
 
 /* Tiny Aaron */
 
-.tiny-aaron-container {
-	background: url('./images/walk.png') left center;
+#tiny-aaron-container {	
 	background-position: 0px, 0px;
-	height: 100px;
-	width : 70px;
 
 	position: fixed;
 	bottom: 5%;	
@@ -138,10 +135,38 @@ p { line-height: 1.333em; }
 
 /* Tiny Aaron - animations */
 
+.tiny-aaron-idle {
+	background: url('./images/walk.png') left center;
+	background-position: -1260px !important; /* temporary */
+	height: 100px;
+	width: 70px;
+
+}
+
+@keyframes idle {
+	100% { background-position: -1260px; }
+}
+
 .tiny-aaron-walk {
+	background: url('./images/walk.png') left center;
+	height: 100px;
+	width : 70px;	
+
 	-webkit-animation: walk .8s steps(24) infinite;	
 }
 
 @keyframes walk {
 	100% { background-position: -1680px; }
+}
+
+.tiny-aaron-despondent {
+	background: url('./images/despondent.png') left center;	
+	height: 75px;
+	width: 75px;
+
+	-webkit-animation: despondent .8s steps(48) infinite;	
+}
+
+@keyframes despondent {
+	100% { background-position: -3600px; }
 }

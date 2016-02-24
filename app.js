@@ -2,7 +2,7 @@
 
 var STNET = STNET || {};
 
-STNET.app = function() {
+STNET.setup = function() {
 
 	/* Elements */
 	let world, worldTag;
@@ -11,7 +11,7 @@ STNET.app = function() {
 	let s;
 
 	/* Mods */
-	function initialize () {
+	function init () {
 		getElements();
 		setupSideScroll();
 		setupPageTransitions();
@@ -30,7 +30,7 @@ STNET.app = function() {
 		 */
 		$('#slides')
 			.attr({
-				'data-0'   : 'transform:translate(100%,0%);',
+				'data-0'   : 'transform:translate(0%,0%);',
 				'data-50p' : "",
 		    "data-100p": "transform:translate(-50%,0%);",
 		    "data-150p": "",
@@ -75,14 +75,9 @@ STNET.app = function() {
 	};
 
 	function setupNavEvents (e) {
-		console.log( 'target hash '+e.currentTarget.hash   )
-		console.log( 'target offset left '+ $(e.currentTarget.hash).offset().left )
-		console.log( 'target offset top ' + Math.abs( $(e.currentTarget.hash).offset().top ))
-		console.log('----')
 
 		var scrollAmount = Math.abs( parseInt($(e.currentTarget.hash).css('left')) );
 		$('body').scrollTop(  Math.abs( $(e.currentTarget.hash).offset().left) );
-
 	};
 
 	function setupSkrollr () {
@@ -99,7 +94,62 @@ STNET.app = function() {
 	  } 
 	};
 
-
-
-	window.ready = initialize();
+	return {
+		init: init
+	}
 }();
+
+STNET.character = function() {
+	const aaron = {
+		selector: '#tiny-aaron-container',
+		states: {
+			idle:    idle,
+			walking: walking,
+			despondent: despondent
+		} 
+	};
+
+	function setState (state) {
+		/* Clear frames before running new ones */ 
+
+		if ( state === aaron.states.idle )
+			aaron.states.idle()
+
+		if ( state === aaron.states.walking )
+			aaron.states.walking()
+
+		if ( state === aaron.states.despondent )
+			aaron.states.despondent()
+
+	}
+
+	function idle () {
+		$(aaron.selector).addClass('tiny-aaron-idle')
+	}
+
+	function walking () {
+		$(aaron.selector).addClass('tiny-aaron-walk');
+	};
+
+	function despondent () {
+		$(aaron.selector).addClass('tiny-aaron-despondent');
+	};
+
+	function clearState() {
+		// $(aaron.selector).css('background-position-x', '0')
+		$(aaron.selector).removeClass();
+	};
+
+	return {
+		states:     aaron.states,
+		setState:   setState,
+		clearState: clearState
+	}
+}();
+
+STNET.animations = (() => {
+
+	// this.character.setState( this.character.states.walking() );
+})();
+
+window.ready = STNET.setup.init();
