@@ -25,9 +25,7 @@ STNET.setup = function() {
 	};
 
 	function setupSideScroll () {
-		/* Note: 
-		 * 'data-100p' means '%' offset
-		 */
+		/* Note: 'data-100p' means '%' offset */
 		$('#slides')
 			.attr({
 				'data-0'   : 'transform:translate(0%,0%);',
@@ -75,8 +73,6 @@ STNET.setup = function() {
 	};
 
 	function setupNavEvents (e) {
-
-		var scrollAmount = Math.abs( parseInt($(e.currentTarget.hash).css('left')) );
 		$('body').scrollTop(  Math.abs( $(e.currentTarget.hash).offset().left) );
 	};
 
@@ -99,12 +95,12 @@ STNET.setup = function() {
 	}
 }();
 
-STNET.character = function() {
+STNET.aaron = function() {
 	const aaron = {
 		selector: '#tiny-aaron-container',
 		states: {
-			idle:    idle,
-			walking: walking,
+			idle:       idle,
+			walking:    walking,
 			despondent: despondent
 		} 
 	};
@@ -121,11 +117,11 @@ STNET.character = function() {
 		if ( state === aaron.states.despondent )
 			aaron.states.despondent()
 
-	}
+	};
 
 	function idle () {
 		$(aaron.selector).addClass('tiny-aaron-idle')
-	}
+	};
 
 	function walking () {
 		$(aaron.selector).addClass('tiny-aaron-walk');
@@ -136,20 +132,38 @@ STNET.character = function() {
 	};
 
 	function clearState() {
-		// $(aaron.selector).css('background-position-x', '0')
 		$(aaron.selector).removeClass();
 	};
 
 	return {
-		states:     aaron.states,
-		setState:   setState,
-		clearState: clearState
+		selector:  			aaron.selector,
+		states:     		aaron.states,
+		setState:   		setState,
+		clearState: 		clearState
 	}
 }();
 
-STNET.animations = (() => {
+STNET.animations = function() {
 
-	// this.character.setState( this.character.states.walking() );
-})();
+	var scrollAmount,
+			timelineSections = {
+				enteringTimesheets: (scrollAmount === 0)
+			};
+
+
+	function timeline () {
+		$(document).on('scroll', processTimeline );
+	};
+
+	function processTimeline () {
+		scrollAmount = $('body').scrollTop();
+		console.log( scrollAmount );
+		if ( enteringTimesheets ) 
+
+	};
+
+	return timeline();
+
+}();
 
 window.ready = STNET.setup.init();
