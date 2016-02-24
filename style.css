@@ -20,7 +20,7 @@ body {
 
 /* Nav */
 nav {
-	z-index: 101;
+	z-index: 100;
 	position: fixed;
 }
 
@@ -103,7 +103,7 @@ p { line-height: 1.333em; }
 	position:absolute;
 	right:0;
 	top: 0;
-	height: calc(400% + 200%);
+	height: calc(400% + 100%);
 	width : 4px;
 }
 .marker {
@@ -121,4 +121,27 @@ p { line-height: 1.333em; }
 }
 .yellow {
 	background-color: yellow;
+}
+
+/* Tiny Aaron */
+
+.tiny-aaron-container {
+	background: url('./images/walk.png') left center;
+	background-position: 0px, 0px;
+	height: 100px;
+	width : 70px;
+
+	position: fixed;
+	bottom: 5%;	
+	z-index: 99;
+}
+
+/* Tiny Aaron - animations */
+
+.tiny-aaron-walk {
+	-webkit-animation: walk .8s steps(24) infinite;	
+}
+
+@keyframes walk {
+	100% { background-position: -1680px; }
 }

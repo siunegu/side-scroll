@@ -6,8 +6,10 @@ STNET.app = function() {
 
 	/* Elements */
 	let world, worldTag;
+	
 	/* Lib */
 	let s;
+
 	/* Mods */
 	function initialize () {
 		getElements();
@@ -28,13 +30,13 @@ STNET.app = function() {
 		 */
 		$('#slides')
 			.attr({
-				'data-0'   :'transform:translate(0%,0%);',
-				'data-50p' :"",
-		    "data-100p":"transform:translate(-50%,0%);",
-		    "data-150p":"",
-		    "data-200p":"transform:translate(-100%,0%);",
-		    "data-250p":"",
-		    "data-300p":"transform:translate(-150%,0%);"			
+				'data-0'   : 'transform:translate(100%,0%);',
+				'data-50p' : "",
+		    "data-100p": "transform:translate(-50%,0%);",
+		    "data-150p": "",
+		    "data-200p": "transform:translate(-150%,0%);",
+		    "data-250p": "",
+		    "data-300p": "transform:translate(-200%,0%);"			
 			});
 	};
 
