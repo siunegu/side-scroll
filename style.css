@@ -99,7 +99,7 @@ h1 { margin-bottom: 0.2em; }
 p { line-height: 1.333em; }
 
 /* Helper */
-#helper {
+#timeline {
 	position:absolute;
 	right:0;
 	top: 0;
@@ -164,9 +164,41 @@ p { line-height: 1.333em; }
 	height: 75px;
 	width: 75px;
 
-	-webkit-animation: despondent .8s steps(48) infinite;	
+	-webkit-animation: despondent 2.2s steps(48) infinite;	
 }
 
 @keyframes despondent {
 	100% { background-position: -3600px; }
+}
+
+.tiny-aaron-despondent-looks-at-screen {
+	background: url('./images/despondent-looks-at-screen.png') left center;	
+	height: 75px;
+	width: 75px;
+
+	-webkit-animation: despondent-looks-at-screen .8s steps(12) 1;	
+}
+
+@keyframes despondent-looks-at-screen {
+	100% { background-position: -900px; }
+}
+
+.tiny-aaron-despondent-looks-at-screen-freeze {
+	background: url('./images/despondent-looks-at-screen.png') left center;	
+	height: 75px;
+	width: 75px;	
+
+  background-position: 75px !important;
+}
+
+.tiny-aaron-typing-fast {
+	background: url('./images/typing-fast.png') left center;	
+	height: 75px;
+	width: 75px;	
+
+	-webkit-animation: typing-fast 0.8s steps(24) infinite;	
+}
+
+@keyframes typing-fast {
+	100% { background-position: -1800px; }
 }

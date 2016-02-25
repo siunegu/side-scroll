@@ -8,6 +8,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>	
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>	 -->
 	<!-- <script src="https://cdn.jsdelivr.net/skrollr.menu/0.1.5/skrollr.menu.min.js"></script>	 -->
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>	
+	<script src="/lib/scrollspeedmonitor.js"></script>	
 	<script src="/lib/skrollr.min.js"></script>	
 	<script src="/lib/skrollr.menu.min.js"></script>	
 
@@ -38,7 +41,7 @@
 					    <p>Image description goes here.</p>
 					</div>					
 				</div>
-				<div class = "slide-2 slide">
+				<div class = "slide-2 slide">					
 					<div class="caption" id="caption-2">
 					    <h1>Image 2 Title</h1>
 					    <p>Image description goes here.</p>
@@ -59,8 +62,16 @@
 			</div>	
 		</div>
 
-		<div id="helper">
-		    <div class="marker red" 	 id="slide-1"></div>
+		<div id="timeline">		    
+				<!-- Horizontal anchors -->
+		    <div class="marker red" 	 id="slide-1" style="position: relative;">
+					<!-- Timeline events -->
+		    	<div id="despondent" style="width: 50px; background: grey;position: absolute;top: 0;right: 4px;"> typing </div>
+		    	<div id="despondent-looks-at-screen" style="width: 50px; background: black;position: absolute;top: 55%;right: 4px;"> looks at screen </div>
+		    	<div id="typing-fast" style="width: 50px; background: grey;position: absolute;top: 65%;right: 4px;"> typing fast </div>
+		    	
+		    	<div id="begin-idle-state" style="width: 50px; background: black;position: absolute;top: 100%;right: 4px;"> begin idle state</div>		    	
+		    </div>
 		    <div class="marker green"  id="slide-2"></div>
 		    <div class="marker blue" 	 id="slide-3"></div>
 		    <div class="marker yellow" id="slide-4"></div>
