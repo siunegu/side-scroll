@@ -63,25 +63,25 @@ nav {
 }
 
 .slide-1 {
-	background: #f1f1f1;
+	background: #181818;
 	background-size: cover;
 }
 
 .slide-2 {
-	background: #f1f13e;
+	background: #181818;
 	background-size: cover;
 
 	transform: translate(100%, 0);
 }
 
 .slide-3 {
-	background: #f1f100;
+	background: #181818;
 
 	transform: translate(200%, 0);
 }
 
 .slide-4 {
-	background: #f19990;
+	background: #181818;
 
 	transform: translate(300%, 0);
 }
@@ -130,6 +130,7 @@ p { line-height: 1.333em; }
 
 	position: fixed;
 	bottom: 5%;	
+	right: 50%;
 	z-index: 99;
 }
 
@@ -137,15 +138,20 @@ p { line-height: 1.333em; }
 
 .tiny-aaron-idle {
 	background: url('./images/idle.png') left center;
+	background-repeat: no-repeat;
 	height: 100px;
-	width: 70px;
+	width: 75px;
 
+	animation: idle .8s steps(12) infinite;	
 	-webkit-animation: idle .8s steps(12) infinite;	
+	-o-animation: idle .8s steps(12) infinite;	
+	-moz-animation: idle .8s steps(12) infinite;	
 }
 
-@keyframes idle {
-	100% { background-position: -840px; }
-}
+@keyframes idle { 0% { background-position: 0px; } 100% { background-position: -840px; } }
+@-webkit-keyframes idle { 0% { background-position: 0px; } 100% { background-position: -840px; } }
+@-o-keyframes idle { 0% { background-position: 0px; } 100% { background-position: -840px; } }
+@-moz-keyframes idle { 0% { background-position: 0px; } 100% { background-position: -840px; } }
 
 .tiny-aaron-walk {
 	background: url('./images/walk.png') left center;
@@ -155,9 +161,10 @@ p { line-height: 1.333em; }
 	-webkit-animation: walk .8s steps(24) infinite;	
 }
 
-@keyframes walk {
-	100% { background-position: -1680px; }
-}
+@keyframes walk { 100% { background-position: -1680px; } }
+@-webkit-keyframes walk { 100% { background-position: -1680px; } }
+@-o-keyframes walk { 100% { background-position: -1680px; } }
+@-moz-keyframes walk { 100% { background-position: -1680px; } }
 
 .tiny-aaron-despondent {
 	background: url('./images/despondent.png') left center;	
@@ -167,9 +174,10 @@ p { line-height: 1.333em; }
 	-webkit-animation: despondent 2.2s steps(48) infinite;	
 }
 
-@keyframes despondent {
-	100% { background-position: -3600px; }
-}
+@keyframes despondent { 100% { background-position: -3600px; } }
+@-webkit-keyframes despondent { 100% { background-position: -3600px; } }
+@-o-keyframes despondent { 100% { background-position: -3600px; } }
+@-moz-keyframes despondent { 100% { background-position: -3600px; } }
 
 .tiny-aaron-looks-at-screen {
 	background: url('./images/despondent-looks-at-screen.png') left center;	
@@ -179,9 +187,10 @@ p { line-height: 1.333em; }
 	-webkit-animation: despondent-looks-at-screen .8s steps(12) 1;	
 }
 
-@keyframes despondent-looks-at-screen {
-	100% { background-position: -900px; }
-}
+@keyframes despondent-looks-at-screen { 100% { background-position: -900px; } }
+@-webkit-keyframes despondent-looks-at-screen { 100% { background-position: -900px; } }
+@-o-keyframes despondent-looks-at-screen { 100% { background-position: -900px; } }
+@-moz-keyframes despondent-looks-at-screen { 100% { background-position: -900px; } }
 
 .tiny-aaron-looks-at-screen-freeze {
 	background: url('./images/despondent-looks-at-screen.png') left center;	
@@ -199,9 +208,10 @@ p { line-height: 1.333em; }
 	-webkit-animation: typing-fast 0.8s steps(24) infinite;	
 }
 
-@keyframes typing-fast {
-	100% { background-position: -1800px; }
-}
+@keyframes typing-fast { 100% { background-position: -1800px; } }
+@-webkit-keyframes typing-fast { 100% { background-position: -1800px; } }
+@-o-keyframes typing-fast { 100% { background-position: -1800px; } }
+@-moz-keyframes typing-fast { 100% { background-position: -1800px; } }
 
 .tiny-aaron-looks-at-screen-taps-button {
 	background: url('./images/looks-at-screen-taps-button.png') left center;
@@ -213,9 +223,10 @@ p { line-height: 1.333em; }
 	animation-fill-mode: forwards;
 }
 
-@keyframes looks-at-screen-taps-button {
-	100% { background-position: -3675px; }
-}
+@keyframes looks-at-screen-taps-button { 100% { background-position: -3675px; } }
+@-webkit-keyframes looks-at-screen-taps-button { 100% { background-position: -3675px; } }
+@-o-keyframes looks-at-screen-taps-button { 100% { background-position: -3675px; } }
+@-moz-keyframes looks-at-screen-taps-button { 100% { background-position: -3675px; } }
 
 .tiny-aaron-dusts-off {
 	background: url('./images/dusts-off.png') left center;
@@ -223,7 +234,7 @@ p { line-height: 1.333em; }
 	height: 75px;
 	width: 100px;	
 
-	-webkit-animation: dusts-off 1.6s steps(46) forwards;	
+	-webkit-animation: dusts-off 1.6s steps(65) forwards;	
 	animation-fill-mode: forwards;
 }
 

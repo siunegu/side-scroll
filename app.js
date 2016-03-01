@@ -5,10 +5,10 @@ var STNET = STNET || {};
 STNET.setup = function() {
 
 	/* Elements */
-	let world, worldTag;
+	var world, worldTag;
 	
 	/* Lib */
-	let s;
+	var s;
 
 	/* Mods */
 	function init () {
@@ -97,7 +97,7 @@ STNET.setup = function() {
 }();
 
 STNET.aaron = function() {
-	const aaron = {
+	var aaron = {
 		selector: '#tiny-aaron-container',
 		states: {
 			idle:       							idle,
@@ -289,17 +289,14 @@ STNET.walkLogic = function() {
 		STNET.aaron.clearState(); 
 		STNET.aaron.setState( STNET.aaron.states.walking ); 		
 
+		clearIntervals();
 		var walkInterval = setTimeout( function() { 
-			idle();
-			this.clearTimeout( walkInterval );
+			// idle();
+			STNET.aaron.setState( STNET.aaron.states.idle ); 				  
+
 	  }, 500 );	
 
-	  var idle = function () {
-			STNET.aaron.clearState(); 
-			STNET.aaron.setState( STNET.aaron.states.idle ); 				  
-	  }
-
-	  var clearIntervals = function () {
+	  function clearIntervals () {
 	  	window.clearTimeout(walkInterval);
 	  }
 	};
