@@ -91,7 +91,8 @@ STNET.setup = function() {
 	};
 
 	return {
-		init: init
+		init: init,
+		setupNavEvents: setupNavEvents
 	}
 }();
 
@@ -99,16 +100,18 @@ STNET.aaron = function() {
 	const aaron = {
 		selector: '#tiny-aaron-container',
 		states: {
-			idle:       idle,
-			walking:    walking,
-			despondent: despondent,
-			despondentLooksAtScreen: despondentLooksAtScreen,
-			typingFast: typingFast
+			idle:       							idle,
+			walking:    							walking,
+			despondent: 					    despondent,
+			despondentLooksAtScreen:  despondentLooksAtScreen,
+			typingFast: 							typingFast,
+			looksAtScreenTapsButton:  looksAtScreenTapsButton
 		} 
 	};
+	
+	/* Animation Setter Method */ 
 
 	function setState (state) {
-		/* Clear frames before running new ones */ 
 
 		if ( state === aaron.states.idle )
 			aaron.states.idle()
@@ -123,9 +126,14 @@ STNET.aaron = function() {
 			aaron.states.despondentLooksAtScreen()		
 
 		if ( state === aaron.states.typingFast )
-			aaron.states.typingFast()
+			aaron.states.typingFast()	
+
+		if ( state === aaron.states.looksAtScreenTapsButton )
+			aaron.states.looksAtScreenTapsButton()
 
 	};
+
+	/* States with CSS classes - keyframe animations */ 
 
 	function idle () {
 		$(aaron.selector).attr('class', 'tiny-aaron-idle')
@@ -140,12 +148,26 @@ STNET.aaron = function() {
 	};
 
 	function despondentLooksAtScreen () {
-		$(aaron.selector).attr('class', 'tiny-aaron-despondent-looks-at-screen');
-		setTimeout( function() { $(aaron.selector).attr('class', 'tiny-aaron-despondent-looks-at-screen-freeze'); }, 660);
+		$(aaron.selector).attr('class', 'tiny-aaron-looks-at-screen');
+		waitThenFreeze(660);
 	};
 
 	function typingFast () {
 		$(aaron.selector).attr('class', 'tiny-aaron-typing-fast');		
+	};
+
+	function looksAtScreenTapsButton () {
+		$(aaron.selector).attr('class', 'tiny-aaron-looks-at-screen-taps-button');		
+	};
+
+
+
+	/* Utility Methods */ 
+
+	function waitThenFreeze (milliseconds) {
+		setTimeout( function() { 
+			$(aaron.selector).attr('class', 'tiny-aaron-looks-at-screen-freeze'); 
+		}, milliseconds);		
 	};
 
 	function clearState() {
@@ -160,7 +182,7 @@ STNET.aaron = function() {
 	}
 }();
 
-STNET.animations = function() {
+STNET.waypoints = function() {
 
 	var scrollAmount,
 			totalHeight,
@@ -170,7 +192,7 @@ STNET.animations = function() {
 			};
 
 
-	function timeline () {
+	function initTimeline () {
 		$(document).on({
 			ready:  registerWaypoints
 		});
@@ -187,10 +209,10 @@ STNET.animations = function() {
 		});
 				
 		var despondentLooksAtScreen = new Waypoint({
-		  element: document.getElementById('despondent-looks-at-screen'),
+		  element: document.getElementById('looks-at-screen'),
 		  handler: function(direction) {
 		  	if ( (direction === 'down') ) {
-		  		console.log('despondent-looks-at-screen')
+		  		console.log('looks-at-screen')
 					STNET.aaron.setState( STNET.aaron.states.despondentLooksAtScreen ); 
 				} else {
 					STNET.aaron.setState( STNET.aaron.states.despondent ); 					
@@ -206,30 +228,100 @@ STNET.animations = function() {
 		  		console.log('typing fast')
 					STNET.aaron.clearState(); 
 					STNET.aaron.setState( STNET.aaron.states.typingFast ); 
-				} else {
+				} else if ( (direction === 'up') ) {
 					STNET.aaron.clearState(); 
-					STNET.aaron.setState( STNET.aaron.states.despondentLooksAtScreen ); 
+					STNET.aaron.setState( STNET.aaron.states.despondent ); 
+				}
+		  }
+		});
+
+		var looksAtScreenTapsButton = new Waypoint({
+		  element: document.getElementById('looks-at-screen-taps-button'),
+		  handler: function(direction) {
+		  	if ( (direction === 'down') ) {
+		  		console.log('looks at screen taps button')
+					STNET.aaron.clearState(); 
+					STNET.aaron.setState( STNET.aaron.states.looksAtScreenTapsButton ); 
+				} else if ( (direction === 'up') ) {
+					STNET.aaron.clearState(); 
+					STNET.aaron.setState( STNET.aaron.states.typingFast ); 
 				}
 		  }
 		});
 
 		var beginWalk = new Waypoint({
-		  element: document.getElementById('begin-idle-state'),
+		  element: document.getElementById('walk-idle-loop'),
 		  handler: function(direction) {
 		  	if ( (direction === 'down') ) {
 		  		console.log('idle')
 					STNET.aaron.clearState(); 
 					STNET.aaron.setState( STNET.aaron.states.idle ); 
+					STNET.walkLogic.initWalkHandler();
 				} else {
 					STNET.aaron.clearState(); 
-					STNET.aaron.setState( STNET.aaron.states.idle ); 
+					STNET.aaron.setState( STNET.aaron.states.typingFast ); 
 				}
 		  }
 		});
 	};
 
-	return timeline();
+	return initTimeline();
 
 }();
+
+STNET.walkLogic = function() {
+
+	var scrollTop;
+
+	function initWalkHandler () {
+		$(document).on({
+			scroll: processWalk
+		});
+	};
+
+	function processWalk (e) {
+		walkDirection();
+		walkThenIdle();
+	};
+
+	function walkThenIdle () {
+
+		STNET.aaron.clearState(); 
+		STNET.aaron.setState( STNET.aaron.states.walking ); 		
+
+		var walkInterval = setTimeout( function() { 
+			idle();
+			this.clearTimeout( walkInterval );
+	  }, 500 );	
+
+	  var idle = function () {
+			STNET.aaron.clearState(); 
+			STNET.aaron.setState( STNET.aaron.states.idle ); 				  
+	  }
+
+	  var clearIntervals = function () {
+	  	window.clearTimeout(walkInterval);
+	  }
+	};
+	
+	// Clear Walk Idle Cycle once above this section.
+	function walkDirection () {
+		var walkDirectionWaypoint = new Waypoint({
+		  element: document.getElementById('walk-idle-loop-clear'),
+		  handler: function(direction) {
+		  	if ( (direction === 'down') ) {
+  				console.log('right');
+				} else {					
+  				console.log('up');
+  				STNET.aaron.clearState(); 
+				} 
+		  }
+		});		
+	};
+
+	return { initWalkHandler: initWalkHandler }
+
+}();
+
 
 window.ready = STNET.setup.init();

@@ -16,14 +16,16 @@
 
 </head>
 <body>
-	<nav>
+
+	<!-- Nav to a particular section -->
+	<div style="display: none;">
 	  <ul>
 	    <li><a href="#slide-1" >1</a></li>
 	    <li><a href="#slide-2" >2</a></li>
 	    <li><a href="#slide-3" >3</a></li>
 	    <li><a href="#slide-4" >4</a></li>
 	  </ul>		
-	</nav>
+	</div>
 
 	<h1 class="title"> WELCOME </h1>
 
@@ -66,11 +68,14 @@
 				<!-- Horizontal anchors -->
 		    <div class="marker red" 	 id="slide-1" style="position: relative;">
 					<!-- Timeline events -->
-		    	<div id="despondent" style="width: 50px; background: grey;position: absolute;top: 0;right: 4px;"> typing </div>
-		    	<div id="despondent-looks-at-screen" style="width: 50px; background: black;position: absolute;top: 55%;right: 4px;"> looks at screen </div>
-		    	<div id="typing-fast" style="width: 50px; background: grey;position: absolute;top: 65%;right: 4px;"> typing fast </div>
-		    	
-		    	<div id="begin-idle-state" style="width: 50px; background: black;position: absolute;top: 100%;right: 4px;"> begin idle state</div>		    	
+		    	<div id="despondent" 			style="width: 50px; background: grey;position: absolute;top: 0;right: 4px;"> typing </div>
+		    	<div id="looks-at-screen" style="width: 50px; background: black;position: absolute;top: 55%;right: 4px;"> looks at screen </div>
+		    	<div id="typing-fast"		  style="width: 50px; background: grey;position: absolute;top: 65%;right: 4px;"> typing fast </div>
+		    	<div id="looks-at-screen-taps-button"		  
+		    														style="width: 50px; background: aqua;position: absolute;top: 75%;right: 4px;"> looks at screen and presses button </div>
+		    	<div id="walk-idle-loop-clear"
+		    														style="width: 50px; background: grey;position: absolute;top: 98%;right: 4px;"></div>
+		    	<div id="walk-idle-loop"  style="width: 50px; background: black;position: absolute;top: 100%; height: 200%; right: 4px;"> begin idle state</div>		    	
 		    </div>
 		    <div class="marker green"  id="slide-2"></div>
 		    <div class="marker blue" 	 id="slide-3"></div>
