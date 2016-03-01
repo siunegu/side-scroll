@@ -139,8 +139,8 @@ p { line-height: 1.333em; }
 .tiny-aaron-idle {
 	background: url('./images/idle.png') left center;
 	background-repeat: no-repeat;
-	height: 100px;
-	width: 75px;
+	height: 150px;
+	width: 120px;
 
 	animation: idle .8s steps(12) infinite;	
 	-webkit-animation: idle .8s steps(12) infinite;	
@@ -148,96 +148,96 @@ p { line-height: 1.333em; }
 	-moz-animation: idle .8s steps(12) infinite;	
 }
 
-@keyframes idle { 0% { background-position: 0px; } 100% { background-position: -840px; } }
-@-webkit-keyframes idle { 0% { background-position: 0px; } 100% { background-position: -840px; } }
-@-o-keyframes idle { 0% { background-position: 0px; } 100% { background-position: -840px; } }
-@-moz-keyframes idle { 0% { background-position: 0px; } 100% { background-position: -840px; } }
+@keyframes idle { 0% { background-position: 0px; } 100% { background-position: -1440px; } }
+@-webkit-keyframes idle { 0% { background-position: 0px; } 100% { background-position: -1440px; } }
+@-o-keyframes idle { 0% { background-position: 0px; } 100% { background-position: -1440px; } }
+@-moz-keyframes idle { 0% { background-position: 0px; } 100% { background-position: -1440px; } }
 
 .tiny-aaron-walk {
 	background: url('./images/walk.png') left center;
-	height: 100px;
-	width : 70px;	
+	height: 150px;
+	width : 120px;	
 
 	-webkit-animation: walk .8s steps(24) infinite;	
 }
 
-@keyframes walk { 100% { background-position: -1680px; } }
-@-webkit-keyframes walk { 100% { background-position: -1680px; } }
-@-o-keyframes walk { 100% { background-position: -1680px; } }
-@-moz-keyframes walk { 100% { background-position: -1680px; } }
+@keyframes walk { 100% { background-position: -2880px; } }
+@-webkit-keyframes walk { 100% { background-position: -2880px; } }
+@-o-keyframes walk { 100% { background-position: -2880px; } }
+@-moz-keyframes walk { 100% { background-position: -2880px; } }
 
 .tiny-aaron-despondent {
 	background: url('./images/despondent.png') left center;	
-	height: 75px;
-	width: 75px;
+	height: 100px;
+	width: 150px;
 
 	-webkit-animation: despondent 2.2s steps(48) infinite;	
 }
 
-@keyframes despondent { 100% { background-position: -3600px; } }
-@-webkit-keyframes despondent { 100% { background-position: -3600px; } }
-@-o-keyframes despondent { 100% { background-position: -3600px; } }
-@-moz-keyframes despondent { 100% { background-position: -3600px; } }
+@keyframes despondent { 100% { background-position: -7200px; } }
+@-webkit-keyframes despondent { 100% { background-position: -7200px; } }
+@-o-keyframes despondent { 100% { background-position: -7200px; } }
+@-moz-keyframes despondent { 100% { background-position: -7200px; } }
 
 .tiny-aaron-looks-at-screen {
 	background: url('./images/despondent-looks-at-screen.png') left center;	
-	height: 75px;
-	width: 75px;
+	height: 100px;
+	width: 150px;
 
 	-webkit-animation: despondent-looks-at-screen .8s steps(12) 1;	
 }
 
-@keyframes despondent-looks-at-screen { 100% { background-position: -900px; } }
-@-webkit-keyframes despondent-looks-at-screen { 100% { background-position: -900px; } }
-@-o-keyframes despondent-looks-at-screen { 100% { background-position: -900px; } }
-@-moz-keyframes despondent-looks-at-screen { 100% { background-position: -900px; } }
+@keyframes despondent-looks-at-screen { 100% { background-position: -1800px; } }
+@-webkit-keyframes despondent-looks-at-screen { 100% { background-position: -1800px; } }
+@-o-keyframes despondent-looks-at-screen { 100% { background-position: -1800px; } }
+@-moz-keyframes despondent-looks-at-screen { 100% { background-position: -1800px; } }
 
 .tiny-aaron-looks-at-screen-freeze {
 	background: url('./images/despondent-looks-at-screen.png') left center;	
-	height: 75px;
-	width: 75px;	
+	height: 100px;
+	width: 150px;	
 
-  background-position: 75px !important;
+  background-position: 150px !important;
 }
 
 .tiny-aaron-typing-fast {
 	background: url('./images/typing-fast.png') left center;	
-	height: 75px;
-	width: 75px;	
+	height: 100px;
+	width: 150px;	
 
 	-webkit-animation: typing-fast 0.8s steps(24) infinite;	
 }
 
-@keyframes typing-fast { 100% { background-position: -1800px; } }
-@-webkit-keyframes typing-fast { 100% { background-position: -1800px; } }
-@-o-keyframes typing-fast { 100% { background-position: -1800px; } }
-@-moz-keyframes typing-fast { 100% { background-position: -1800px; } }
+@keyframes typing-fast { 100% { background-position: -3600px; } }
+@-webkit-keyframes typing-fast { 100% { background-position: -3600px; } }
+@-o-keyframes typing-fast { 100% { background-position: -3600px; } }
+@-moz-keyframes typing-fast { 100% { background-position: -3600px; } }
 
 .tiny-aaron-looks-at-screen-taps-button {
 	background: url('./images/looks-at-screen-taps-button.png') left center;
 	background-repeat: no-repeat;	
-	height: 75px;
-	width: 75px;	
+	height: 100px;
+	width: 150px;	
 
-	-webkit-animation: looks-at-screen-taps-button 1.6s steps(49) forwards;	
+	-webkit-animation: looks-at-screen-taps-button 1.6s steps(54) forwards;	
 	animation-fill-mode: forwards;
 }
 
-@keyframes looks-at-screen-taps-button { 100% { background-position: -3675px; } }
-@-webkit-keyframes looks-at-screen-taps-button { 100% { background-position: -3675px; } }
-@-o-keyframes looks-at-screen-taps-button { 100% { background-position: -3675px; } }
-@-moz-keyframes looks-at-screen-taps-button { 100% { background-position: -3675px; } }
+@keyframes looks-at-screen-taps-button { 100% { background-position: -8100px; } }
+@-webkit-keyframes looks-at-screen-taps-button { 100% { background-position: -8100px; } }
+@-o-keyframes looks-at-screen-taps-button { 100% { background-position: -8100px; } }
+@-moz-keyframes looks-at-screen-taps-button { 100% { background-position: -8100px; } }
 
 .tiny-aaron-dusts-off {
 	background: url('./images/dusts-off.png') left center;
 	background-repeat: no-repeat;	
-	height: 75px;
-	width: 100px;	
+	height: 150px;
+	width: 120px;	
 
 	-webkit-animation: dusts-off 1.6s steps(65) forwards;	
 	animation-fill-mode: forwards;
 }
 
 @keyframes dusts-off {
-	100% { background-position: -4550px; }
+	100% { background-position: -7800px; }
 }
